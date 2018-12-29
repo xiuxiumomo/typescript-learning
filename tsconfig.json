@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./built/src/",
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "scripts": {
+
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
