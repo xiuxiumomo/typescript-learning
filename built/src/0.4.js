@@ -63,8 +63,10 @@ var Cat = /** @class */ (function (_super) {
         return _super.call(this, name) || this;
     }
     Cat.prototype.eat = function () {
-        return this.name + '猫吃东西';
+        return this.name + '猫吃东西2';
     };
     return Cat;
 }(Animal));
+var c = new Cat('ccc');
+console.log(c.eat());
 //# sourceMappingURL=0.4.js.map

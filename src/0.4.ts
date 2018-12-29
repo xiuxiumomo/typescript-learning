@@ -50,10 +50,11 @@ class Cat extends Animal{
         super(name);
     }
     eat(){
-        return this.name+'猫吃东西';
+        return this.name+'猫吃东西2';
     }
 
 }
-
+let c = new Cat('ccc');
+console.log(c.eat())
 
 
