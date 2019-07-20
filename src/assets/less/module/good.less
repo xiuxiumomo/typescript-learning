@@ -1,0 +1,82 @@
+#goods{
+    height: 100%;
+    overflow: auto;
+    .slide-wrap{
+        height: 4rem;
+        overflow: hidden;
+        .van-swipe{
+            height: 100%; 
+        }
+        .banner-item{
+            height: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+            }
+        }
+    }
+    .list-box{
+        color: @textColor;
+        font-size: 0.28rem;
+        margin-top: 0.4rem;
+        .item{
+            background-color: #fff;
+            border-radius: 0.08rem;
+            box-shadow: 0 0 0.16rem rgba(0, 0, 0, 0.13);
+            padding: 0.2rem;
+            margin-bottom: 0.2rem;
+            height: 1.8rem;
+            .left-item{
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-around;
+                width: 60%;
+                height: 100%;
+                .msg{
+                    span{
+                        color: @normalColor;
+                        font-size: 0.24rem;
+                        &:nth-child(2){
+                            margin-left: 0.2rem;
+                        }
+                    }
+                }
+            }
+            .right-item{
+                width: 2.4rem;
+                height: 100%;
+                img{
+                    width: 100%;
+                    height: 100%;  
+                }
+            }
+        }
+    }
+   
+}
+#detail{
+    .top-head{
+        .title{
+            font-size: 0.4rem;
+            color: @textColor;
+            line-height: 0.48rem;
+        }
+        .author{
+            font-size: 0.24rem;
+            color: @normalColor;
+            margin: 0.4rem 0;
+            justify-content: flex-start;
+            span{
+                &:nth-child(2){
+                    margin-left: 0.2rem;
+                }
+            }
+        }
+    }
+    .content{
+        width: 100%;
+        overflow: hidden;
+        line-height: 0.6rem;
+    }
+}
