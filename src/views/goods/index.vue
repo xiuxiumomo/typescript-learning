@@ -27,7 +27,7 @@
               <img :src="item.author.avatar_url" />
             </div>
           </div>
-          <div v-if="finished">没有更多了...</div>
+
         </div>
       </van-skeleton>
     </div>

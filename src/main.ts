@@ -10,7 +10,6 @@ Vue.use(Vant);
 
 
 Vue.config.productionTip = false;
-console.log(process.env)
 
 new Vue({
     router,
