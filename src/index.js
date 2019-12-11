@@ -1,10 +1,8 @@
-import _ from 'lodash';
-import './style/index.css';
-import './style/leo.scss';
+import './index.css'
+import './index.less'
 function createElement() {
     let div = document.createElement('div');
-    div.innerHTML = _.join(['name2','jack3'],'');
-    div.className='box';
+    div.innerHTML = 'hello world';
     return div;
 }
 document.body.appendChild(createElement())

@@ -1,0 +1,13 @@
+!function(r){var n={};function t(e){if(n[e])return n[e].exports;var _=n[e]={i:e,l:!1,exports:{}};return r[e].call(_.exports,_,_.exports,t),_.l=!0,_.exports}t.m=r,t.c=n,t.d=function(e,_,r){t.o(e,_)||Object.defineProperty(e,_,{enumerable:!0,get:r})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(_,e){if(1&e&&(_=t(_)),8&e)return _;if(4&e&&"object"==typeof _&&_&&_.__esModule)return _;var r=Object.create(null);if(t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:_}),2&e&&"string"!=typeof _)for(var n in _)t.d(r,n,function(e){return _[e]}.bind(null,n));return r},t.n=function(e){var _=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(_,"a",_),_},t.o=function(e,_){return Object.prototype.hasOwnProperty.call(e,_)},t.p="",t(t.s="./src/index.js")}({"./src/index.css":
+/*!***********************!*\
+  !*** ./src/index.css ***!
+  \***********************/
+/*! no static exports found */function(module,exports,__webpack_require__){eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/index.css?")},"./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */function(module,__webpack_exports__,__webpack_require__){"use strict";eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ \"./src/index.css\");\n/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.less */ \"./src/index.less\");\n/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\nfunction createElement() {\r\n    let div = document.createElement('div');\r\n    div.innerHTML = 'hello world';\r\n    return div;\r\n}\r\ndocument.body.appendChild(createElement())\n\n//# sourceURL=webpack:///./src/index.js?")},"./src/index.less":
+/*!************************!*\
+  !*** ./src/index.less ***!
+  \************************/
+/*! no static exports found */function(module,exports,__webpack_require__){eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/index.less?")}});

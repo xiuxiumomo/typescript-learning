@@ -1,3 +1,30 @@
+## webpack配置less 
+~~~
+//自动添加前缀postcss-loader autoprefixer
+//sourceMap作用查看样式是来自哪个文件的。
+ module: {
+        rules: [
+            {
+                test: /\.(le|c)ss$/,
+                use: ["style-loader",
+                    { loader: "css-loader", options: { sourceMap: true } },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            sourceMap: true,
+                            plugins: loader => [
+                                require('autoprefixer')() //自动添加前缀
+                            ]
+                        }
+                    },
+                    { loader: "less-loader", options: { sourceMap: true } } //引入less-loader
+                ]
+            }
+        ]
+    }
+~~~
+
+
 ## 1.webpack开启sourceMap和添加css3前缀
 - 安装postcss npm install postcss-loader autoprefixer -D
 - 在package.json中配置 
@@ -49,7 +76,7 @@
             ]
         }
 ~~~
-## 2.webpack将css抽取成单独文件
+## 2.webpack将css抽取成单独文件 不抽的话只有一个main.js
 > 在src/index.js中import的css/scss文件都会在html中写入style,还可以单独打包成css文件
 npm install mini-css-extract-plugin --save-dev引入成功后就不可以使用style-loader,替换成 MiniCssExtractPlugin.loader,
 
