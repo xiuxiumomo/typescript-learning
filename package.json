@@ -1,6 +1,9 @@
 {
     "scripts": {
-        "build": "npx webpack -c webpack.config.js"
+        "build": "npx webpack -c webpack.config.js",
+        "build-dev": "npx webpack -c webpack.dev.js --mode development",
+        "build-prod": "npx webpack -c webpack.config.js --mode production"
+
     },
     "devDependencies": {
         "@babel/core": "^7.5.5",

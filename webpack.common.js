@@ -1,42 +1,24 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //抽出css文件插件
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); //压缩css插件
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); //压缩js
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //模板不用每次手动引入hashjs和css了
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //清除dist
 
 module.exports = {
     entry: './src/index',
-    mode: "development",
-    output: {
-        filename: 'main.[hash].js',
-        path: path.resolve(__dirname, 'dist')
-    },
+  
     module: {
         rules: [
+          
             {
-                test: /\.(le|c)ss$/,
+                test: /\.js$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
                     {
-                        loader: "css-loader",
+                        loader: 'babel-loader',
                         options: {
-                            sourceMap: true
-
+                            presets: ['@babel/preset-env']
                         }
-                    },
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            sourceMap: true,
-                            plugins: loader => [
-                                require('autoprefixer')()
-                            ]
-                        }
-                    },
-                    { loader: "less-loader", options: { sourceMap: true } }
+                    }
                 ],
-
+                exclude: /node_modules/
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -65,18 +47,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css'
-        }),
-        new OptimizeCssAssetsPlugin({}),
-        new UglifyJsPlugin({
-            cache: true,
-            parallel: true,
-            sourceMap: true
-
-        }),
+    plugins: [  
         new HtmlWebpackPlugin({
             title: 'demo',
             filename: 'main.html',

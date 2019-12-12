@@ -2,12 +2,12 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //抽出css文件插件
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'); //压缩css插件
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); //压缩js
-const HtmlWebpackPlugin = require('html-webpack-plugin'); //模板不用每次手动引入hashjs和css了
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //清除dist
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-module.exports = {
-    entry: './src/index',
-    mode: "development",
+
+let prodConfig = {
+    mode: "production",
     output: {
         filename: 'main.[hash].js',
         path: path.resolve(__dirname, 'dist')
@@ -38,31 +38,8 @@ module.exports = {
                 ],
 
             },
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/,
-                include: [path.resolve(__dirname, 'src/')],
-                use: [
-                    {
-                        loader: 'url-loader', //图片会转成base64
-                        options: { limit: 10000 }
-                    },
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            mozjpeg: { progressive: true, quality: 65 },
-                            optipng: { enable: false },
-                            pngquant: { quality: '65-90', speed: 4 },
-                            gifsicle: { interlaced: false },
-                            webp: { quality: 75 }
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(woff|woff2|eto|ttf|otf)$/,
-                include: [path.resolve(__dirname, "src/")],
-                use: ["file-loader"]
-            }
+           
+           
         ]
     },
     plugins: [
@@ -75,13 +52,8 @@ module.exports = {
             cache: true,
             parallel: true,
             sourceMap: true
-
-        }),
-        new HtmlWebpackPlugin({
-            title: 'demo',
-            filename: 'main.html',
-            minify: {}
-        }),
-        new CleanWebpackPlugin({})
+        })
+        
     ]
 }
+module.exports = merge(common,prodConfig)
