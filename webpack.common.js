@@ -4,10 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin'); //清除dist
 
 module.exports = {
     entry: './src/index',
-  
     module: {
         rules: [
-          
             {
                 test: /\.js$/,
                 use: [
@@ -46,6 +44,16 @@ module.exports = {
                 use: ["file-loader"]
             }
         ]
+    },
+    //配置别名
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname,'src/')
+        }
+    },
+    externals: {
+        jquery: 'jQuery', //不把jquery打包进来而使用cdn节点
+        lodash: '-'
     },
     plugins: [  
         new HtmlWebpackPlugin({

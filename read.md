@@ -303,4 +303,92 @@ module: {
 
 ```
 npm install webpack-merge -D
+
+//打包指令必须这么写不然会报错
+
+"build-dev": "npx webpack --config webpack.dev.js --mode development",
+"build-prod": "npx webpack --config webpack.prod.js --mode production"
 ```
+
+### 9.webpack监控js得sourceMap
+~~~
+//webpack.dev.js
+let devConfig = {
+  devtool: 'in-source-map'
+}
+~~~
+
+### 10.开启监控自动编译
+~~~
+//package.js bulid-dev
+"build-dev": "npx webpack --config webpack.dev.js --watch"
+~~~
+
+### 11.webpack热更新
+- npm install webpack-dev-server --save-dev 热更新插件
+~~~
+//webpack.dev.js
+const webpack = require('webpack');
+let devConfig = {
+   devServer: {
+    contentBase: path.join(__dirname, 'dist'),  //启动目录
+    compress: true, //开启压缩
+    hot: true, 
+    overlay: true, 
+    open:true, //自动打开
+    publicPath: '/',
+    host: 'localhost',
+    port: '1200'
+ }
+ plugins: [
+    new webpack.NamedModulesPlugin(), // 更容易查看（patch）的以来
+    new webpack.HotModuleReplacementPlugin() // 替换插件
+ ]
+}
+
+//package.json
+"dev": "npx webpack-dev-server --config webpack.dev.js"
+~~~
+
+### 12.开启eslint
+- npm install eslint eslint-loader --save-dev 插件
+- npm install babel-loader standard --save-dev 校验规则
+- 添加.eslintrc.js .eslintignore 忽略文件
+
+### 13.开启别名
+~~~
+//webpack.common.js
+module.exports ={
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname,'src/'),
+    }
+  }
+}
+~~~
+### 14.外部扩展 jquery,lodash等
+~~~
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+//webpack.common.js
+
+module.exports ={
+  jquery: 'jQuery'
+}
+~~~
+
+### 15.安装分析表
+~~~
+// webpack.dev.js
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+  plugins: [
+    new BundleAnalyzerPlugin()
+    // ...
+  ]
+}
+//npm run build-dev
+~~~
+
+
+
